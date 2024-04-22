@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvxfokpveq12i"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_l1ccu"]
+
+[sub_resource type="Shader" id="Shader_y7rl2"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlxu8"]
+shader = SubResource("Shader_y7rl2")
+
+[node name="Main" type="Node2D"]
+material = SubResource("ShaderMaterial_mlxu8")
+position = Vector2(330, 137)
+script = ExtResource("1_l1ccu")
+
+[node name="Play Button" type="Button" parent="."]
+offset_left = -41.0
+offset_top = -53.0
+offset_right = 40.0
+offset_bottom = -15.0
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="."]
+offset_left = -41.0
+offset_top = 18.0
+offset_right = 40.0
+offset_bottom = 56.0
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

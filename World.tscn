@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2bxs62g6r7kf"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_fbvj8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yvlw6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_52nn5"]
+radius = 51.0
+height = 156.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_u3d3q"]
+specular_color = Color(1, 0, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p712r"]
+size = Vector2(1180, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74lyn"]
+size = Vector2(134.5, 494.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tjd4"]
+size = Vector2(134.5, 494.875)
+
+[node name="World" type="Node2D"]
+position = Vector2(709, 295)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(8, 102)
+script = ExtResource("1_fbvj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+modulate = Color(1, 0, 1, 1)
+material = SubResource("CanvasItemMaterial_yvlw6")
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_52nn5")
+debug_color = Color(0.875851, 2.06962e-05, 0.606378, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+modulate = Color(1, 0, 1, 1)
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(-36, -37)
+scale = Vector2(70.42, 86.5)
+texture = SubResource("CanvasTexture_u3d3q")
+centered = false
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-14, 221)
+shape = SubResource("RectangleShape2D_p712r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-641.75, -46.4375)
+shape = SubResource("RectangleShape2D_74lyn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+position = Vector2(616, -50)
+shape = SubResource("RectangleShape2D_6tjd4")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -605.0
+offset_top = 187.0
+offset_right = 619.0
+offset_bottom = 282.0
