@@ -24,7 +24,7 @@ shader = SubResource("Shader_y7rl2")
 
 [node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_mlxu8")
-position = Vector2(330, 137)
+position = Vector2(582, 323)
 script = ExtResource("1_l1ccu")
 
 [node name="Play Button" type="Button" parent="."]
